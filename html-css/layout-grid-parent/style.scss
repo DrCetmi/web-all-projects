@@ -1,0 +1,11 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    img{
+        width: 100%;
+        // aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+    grid-template-columns: minmax(100px, 350px) 1fr minmax(100px, 350px);
+}

@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10vw 1fr 10vw;
+  grid-template-rows: 100px repeat(2, 1fr) 200px;
+  grid-template-areas: "head head head" ". main ." "section section section" "footer footer footer";
+}
+body header {
+  background-color: #D5D5D5;
+  grid-area: head;
+  padding: 0 10%;
+}
+body header a {
+  text-decoration: none;
+  color: black;
+  padding-left: 20px;
+}
+body main {
+  height: 640px;
+  margin: 5px 0;
+  grid-area: main;
+  background-color: #F5F5F5;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px 90px 25px 25px 100px 100px 80px;
+  grid-gap: 15px;
+  padding: 15px;
+}
+body main .box1 {
+  background-image: url(./images/1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+body main .box2 {
+  background-image: url(./images/2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-area: 1/2/3/3;
+}
+body main .box3 {
+  background-image: url(./images/3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-area: 1/3/4/4;
+}
+body main .box4 {
+  background-image: url(./images/4.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-area: 1/4/3/5;
+}
+body main .box5 {
+  background-image: url(./images/5.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-area: 2/1/6/2;
+}
+body main .box6 {
+  background-image: url(./images/6.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-area: 3/2/7/2;
+}
+body main .box7 {
+  background-image: url(./images/7.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-area: 4/3/8/4;
+}
+body main .box8 {
+  background-image: url(./images/8.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-area: 4/4/8/5;
+}
+body main .box9 {
+  background-image: url(./images/9.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-area: 6/1/8/2;
+}
+body main .box10 {
+  background-image: url(./images/10.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-area: 7/2/8/3;
+}
+body section {
+  grid-area: section;
+  background-color: #f5f5f5;
+  width: 100%;
+}
+body section .container {
+  width: 80%;
+  height: 600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px;
+}
+body section .sect1 {
+  background-color: #F80C6E;
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+  line-height: 200px;
+  text-shadow: 2px 2px 5px black;
+}
+body section .sect2 {
+  background-color: #FAA309;
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+  line-height: 200px;
+  text-shadow: 2px 2px 5px black;
+}
+body section .sect3 {
+  background-color: #DEAAFF;
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+  line-height: 200px;
+  text-shadow: 2px 2px 5px black;
+}
+body section .sect4 {
+  background-color: #FFFE3F;
+  grid-area: 2/2;
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+  line-height: 200px;
+  text-shadow: 2px 2px 5px black;
+}
+body section .sect5 {
+  background-color: #3ADB93;
+  grid-area: 2/3;
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+  line-height: 200px;
+  text-shadow: 2px 2px 5px black;
+}
+body section .sect6 {
+  background-color: #C1D3FE;
+  grid-area: 3/3;
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+  line-height: 200px;
+  text-shadow: 2px 2px 5px black;
+}
+body footer {
+  grid-area: footer;
+  background-color: #505050;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  grid-template-rows: 150px;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  row-gap: 20px;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px 10%;
+}
+body footer .foot {
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: #f5f5f5;
+  border: 1px solid #8b8b8b;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 1px 1px 5px white;
+  display: flex;
+  align-items: center;
+}/*# sourceMappingURL=style.css.map */

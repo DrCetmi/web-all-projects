@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px 200px 150px 100px;
+  row-gap: 1rem;
+  grid-template-areas: "head head head head" "main main main aside1" "aside2 section section aside1" "footer footer footer footer";
+  padding: 10px;
+}
+body header {
+  grid-area: head;
+  background-color: yellow;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  height: 100%;
+}
+body header .nav1 {
+  width: 50%;
+  height: 100%;
+  grid-area: nav;
+  background-color: gray;
+  border-radius: 8px;
+}
+body header .nav1 ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+body header .nav1 ul li {
+  list-style-type: none;
+  padding: 35px;
+  font-size: 1.4rem;
+}
+body h2, body p {
+  padding: 20px;
+}
+body main {
+  grid-area: main;
+  background-color: bisque;
+  border-radius: 8px;
+}
+body .aside-one {
+  grid-area: aside1;
+  background-color: greenyellow;
+  border-radius: 8px;
+  margin-left: 1rem;
+}
+body .aside-two {
+  grid-area: aside2;
+  background-color: greenyellow;
+  border-radius: 8px;
+}
+body section {
+  grid-area: section;
+  background-color: violet;
+  margin-left: 1rem;
+  border-radius: 8px;
+}
+body footer {
+  grid-area: footer;
+  background-color: gray;
+  border-radius: 8px;
+}/*# sourceMappingURL=style.css.map */
