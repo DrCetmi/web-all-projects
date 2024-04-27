@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 80%;
+  margin: 50px auto;
+  background-color: rgb(255, 255, 255);
+}
+body header h1 {
+  color: blueviolet;
+}
+body header hr {
+  width: 100%;
+  border: none;
+  height: 4px;
+  background-color: #f5f5f5;
+}
+body header hr::before {
+  content: "";
+  display: inline-block;
+  width: 310px;
+  height: 20px;
+  background-color: blueviolet;
+}
+body table {
+  width: 100%;
+  border-collapse: collapse;
+}
+body table .head {
+  border-bottom: 2px solid #f5f5f5;
+}
+body table .head th {
+  padding: 10px 0 10px 0;
+}
+body table tbody tr {
+  border-bottom: 2px solid #f5f5f5;
+}
+body table tbody tr:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0px 0px 5px black;
+}
+body table tbody td {
+  text-align: center;
+  margin: 20px;
+}
+body table tbody td .image {
+  background-color: transparent;
+  border: 1px solid #f5f5f5;
+  border-radius: 50%;
+}
+body table tbody td:nth-child(5), body table tbody td:nth-child(6) {
+  padding-right: 25px;
+  text-align: right;
+}
+body table tbody td:nth-child(7) {
+  text-align: start;
+  padding-left: 30px;
+}
+body table tbody .images {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 120px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.container:hover .content {
+  display: block;
+  position: absolute;
+  right: 2px;
+}
+
+.content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.content a:hover {
+  background-color: #f0f0f0;
+}/*# sourceMappingURL=style.css.map */
