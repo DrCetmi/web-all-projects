@@ -1,0 +1,17 @@
+{
+  "name": "browser-passwordgenerator",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "DCI",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DigitalCareerInstitute/Browser-PasswordGenerator",
+    "id": 202345164
+  }
+}
