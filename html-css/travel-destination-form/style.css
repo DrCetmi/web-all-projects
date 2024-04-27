@@ -1,0 +1,93 @@
+body {
+    background-image: url(./images/default.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    color: white;
+    text-shadow: -5px 5px 18px #676767;
+    font-size: clamp(2.5rem, 3vw, 3rem);
+}
+form {
+    display: flex;
+    align-items: start;
+}
+.erste-form {
+    display: flex;
+}
+.erste-form label {
+    flex: 1;
+    background-color: red;
+    color: white;
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.erste-form input {
+    flex: 2;
+    margin-right: 2rem;
+    border-style: none;
+    padding: 5px;
+}
+.erste-form input[type="text"]:focus {
+    border: 1px solid #d2113c;
+    outline: none;
+    background-color: #d87e24c5;
+    color: white;
+}
+.btn-box {
+    display: flex;
+    justify-content: space-evenly;
+}
+.btn {
+    border: 1px solid red;
+    padding: 10px;
+    margin-top: 10px;
+    color: red;
+    background-color: rgba(255, 255, 255, 0.717);
+    cursor: pointer;
+}
+.btn1 {
+    border: 1px solid red;
+    padding: 10px;
+    margin-top: 10px;
+    color: white;
+    background-color: red;
+    cursor: pointer;
+}
+.zweite-form {
+    display: flex;
+
+    margin-bottom: 10px;
+}
+.zweite-form label {
+    flex: 1;
+    background-color: red;
+    color: white;
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.zweite-form input {
+    flex: 2;
+    padding: 5px;
+    border-style: none;
+}
+.zweite-form input[type="text"]:focus {
+    border: 1px solid #d2113c;
+    outline: none;
+    background-color: #d87e24c5;
+    color: white;
+}
+@media screen and (max-width: 600px) {
+    form {
+        display: block;
+    }
+    .erste-form {
+        margin-bottom: 10px;
+    }
+}
