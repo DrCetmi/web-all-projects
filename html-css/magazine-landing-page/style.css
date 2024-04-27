@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+body {
+    background-color: antiquewhite;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+}
+.flex-container .language {
+    display: flex;
+}
+.language q {
+    padding: 0.5rem;
+    margin-left: 1rem;
+    font-size: 1rem;
+    border: 1px solid black;
+    font-weight: bold;
+    border-radius: 50%;
+}
+.flex-container .language q,
+a {
+    text-decoration: none;
+    color: black;
+}
+.flex-container .language .active {
+    background-color: black;
+}
+.flex-container .language .active a {
+    color: white;
+}
+.flex-container h1 {
+    font-size: 10rem;
+    text-transform: uppercase;
+}
+.flex-container p {
+    font-size: 3rem;
+}
+.image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+.image img {
+    object-fit: cover;
+    width: 80%;
+    height: 80vh;
+    margin: 0 auto;
+}
+.image button {
+    border-style: none;
+    background-color: transparent;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-top: 5rem;
+}
+.image button::before {
+    content: "\f063";
+    padding-right: 10px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: bold;
+}
+.flex-container .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 40%;
+}
+.flex-container .btn button {
+    padding: 1rem 2rem;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    text-transform: uppercase;
+    border-style: none;
+    font-size: 1rem;
+}
+.btn button::after {
+    content: "\f061";
+    padding-right: 5px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: bold;
+    padding-left: 10px;
+}
+/*# sourceMappingURL=style.css.map */
