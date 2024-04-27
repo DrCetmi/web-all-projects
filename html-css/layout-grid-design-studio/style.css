@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Maven Pro", sans-serif;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(8, 150px);
+    grid-template-rows: repeat(4, 150px);
+}
+header {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 20px;
+    padding: 5px;
+}
+.box1 {
+    background-image: url(./assets/item-one.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+.box2 {
+    background-image: url(./assets/item-two.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+.box3 {
+    background-image: url(./assets/item-six.jpeg);
+    background-size: cover;
+    background-position: center;
+    grid-row-start: 2;
+    grid-column-start: 3;
+    grid-row-end: 3;
+    grid-column-end: 4;
+}
+.box4 {
+    grid-row-start: 2;
+    grid-column-start: 4;
+    grid-row-end: 5;
+    grid-column-end: 6;
+    font-size: 6rem;
+    letter-spacing: 10px;
+    padding: 6px;
+    color: red;
+    position: relative;
+}
+.box5 {
+    background-image: url(./assets/item-five.jpeg);
+    background-size: cover;
+    background-position: center;
+    grid-area: 2/6/3/5;
+}
+.box7 {
+    background-image: url(./assets/item-nine.jpeg);
+    background-size: cover;
+    background-position: center;
+    grid-row-start: 1;
+    grid-column-start: 7;
+    grid-row-end: 3;
+    grid-column-end: 9;
+}
+.box9 {
+    background-image: url(./assets/item-eight.jpeg);
+    background-size: cover;
+    background-position: center;
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-row-end: 5;
+    grid-column-end: 3;
+}
+.box12 {
+    background-image: url(./assets/item-seven.jpeg);
+    background-size: cover;
+    background-position: center;
+    grid-row-start: 3;
+    grid-column-start: 4;
+    grid-row-end: 4;
+    grid-column-end: 5;
+}
+.box14 {
+    background-image: url(./assets/item-four.jpeg);
+    background-size: cover;
+    background-position: center;
+    grid-row-start: 3;
+    grid-column-start: 6;
+    grid-row-end: 4;
+    grid-column-end: 7;
+}
+.box23 {
+    background-image: url(./assets/item-three.jpeg);
+    background-size: cover;
+    background-position: center;
+    grid-row-start: 4;
+    grid-column-start: 7;
+    grid-row-end: 4;
+    grid-column-end: 7;
+}
+footer {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 20px;
+    padding: 5px;
+}
