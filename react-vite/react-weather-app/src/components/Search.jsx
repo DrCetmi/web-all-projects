@@ -29,7 +29,7 @@ const Search = () => {
       const fetchData = async () => {
         try {
           const response = await fetch(
-            `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}&units=metric`
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}&units=metric`
           );
           if (!response.ok) {
             throw new Error("City not found. Please try again.");
