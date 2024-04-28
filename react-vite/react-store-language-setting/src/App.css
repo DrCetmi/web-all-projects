@@ -1,0 +1,13 @@
+.App{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+
+}
+.content{
+    border: 2px solid goldenrod;
+    padding: 20px;
+    margin-top: 20px;
+    line-height: 32px;
+    text-align: justify;
+}
