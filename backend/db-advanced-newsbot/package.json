@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.3",
+    "mongoose": "^8.2.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "be-database-advanced-newsbot-drcetmi",
+  "description": "This exercise is about practicing combining Express and Mongoose to work with data.",
+  "version": "1.0.0",
+  "main": "Job.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

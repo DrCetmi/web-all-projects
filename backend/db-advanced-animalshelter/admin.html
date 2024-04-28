@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animal shelter Admin UI</title>
+    <style>
+      #backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100svw;
+        width: 100vw;
+        height: 100svh;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .hide {
+        display: none;
+      }
+
+      #modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 1rem;
+        border-radius: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Animal shelter Admin UI</h1>
+
+    <form id="new-animal">
+      <fieldset>
+        <legend>Add new animal</legend>
+        <div>
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <div>
+          <label for="desc">Desc</label>
+          <input type="text" name="desc" id="desc" />
+        </div>
+        <button>Add new animal</button>
+      </fieldset>
+    </form>
+
+    <h2>Current animals</h2>
+    <table border="1" width="800">
+      <thead>
+        <th>Name</th>
+        <th>Reserved</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <template id="actions">
+      <button onClick="remove(this)">Remove</button>
+      <button onClick="reserve(this)">Reserve</button>
+      <button onClick="edit(this)">Edit</button>
+    </template>
+
+    <div id="backdrop" class="hide"></div>
+    <div id="modal" class="hide">
+      <fieldset>
+        <legend>Edit</legend>
+        <div>
+          <label for="name">Name</label>
+          <input type="text" name="name" id="edit-name" />
+        </div>
+        <div>
+          <label for="desc">Desc</label>
+          <input type="text" name="desc" id="edit-desc" />
+        </div>
+        <button onClick="doEdit(this)">Edit</button>
+      </fieldset>
+    </div>
+    <script>
+      const apiUrl = "http://localhost:3000/animals";
+
+      // Function to fetch animals from the API
+      async function fetchAnimals() {
+        try {
+          const response = await fetch(apiUrl);
+          if (!response.ok) {
+            throw new Error("Failed to fetch animals");
+          }
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching animals:", error.message);
+          return [];
+        }
+      }
+
+      // Function to delete an animal by ID
+      async function deleteAnimal(id) {
+        try {
+          const response = await fetch(`${apiUrl}/${id}`, { method: "DELETE" });
+          if (!response.ok) {
+            throw new Error("Failed to delete animal");
+          }
+          return true;
+        } catch (error) {
+          console.error("Error deleting animal:", error.message);
+          return false;
+        }
+      }
+
+      // Function to update reservation status of an animal by ID
+      async function updateReservation(id) {
+        try {
+          const response = await fetch(`${apiUrl}/${id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ reserved: true }),
+          });
+          if (!response.ok) {
+            throw new Error("Failed to update reservation status");
+          }
+          return true;
+        } catch (error) {
+          console.error("Error updating reservation status:", error.message);
+          return false;
+        }
+      }
+
+      // Function to update an animal by ID
+      async function updateAnimal(id, newData) {
+        try {
+          const response = await fetch(`${apiUrl}/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newData),
+          });
+          if (!response.ok) {
+            throw new Error("Failed to update animal");
+          }
+          return true;
+        } catch (error) {
+          console.error("Error updating animal:", error.message);
+          return false;
+        }
+      }
+
+      // Fetch animals and update UI
+      async function loadAnimals() {
+        const animals = await fetchAnimals();
+        const tableBody = document.querySelector("tbody");
+        tableBody.innerHTML = ""; // Clear existing rows
+        animals.forEach((animal) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+                    <td>${animal.name}</td>
+                    <td>${animal.reserved}</td>
+                    <td>${animal.desc}</td>
+                    <td data-id="${animal._id}">
+                        <button onClick="remove(this)">Remove</button>
+                        <button onClick="reserve(this)">Reserve</button>
+                        <button onClick="edit(this)">Edit</button>
+                    </td>
+                `;
+          tableBody.appendChild(row);
+        });
+      }
+
+      // Event listeners for Remove, Reserve, Edit buttons
+      async function remove(element) {
+        const animalId = element.parentElement.dataset.id;
+        const deleted = await deleteAnimal(animalId);
+        if (deleted) {
+          await loadAnimals();
+        }
+      }
+
+      async function reserve(element) {
+        const animalId = element.parentElement.dataset.id;
+        const reserved = await updateReservation(animalId);
+        if (reserved) {
+          await loadAnimals();
+        }
+      }
+
+      function edit(element) {
+        // Functionality to show modal and edit animal details
+        // Implementation omitted for brevity
+      }
+
+      async function doEdit() {
+        // Functionality to update animal details
+        // Implementation omitted for brevity
+      }
+
+      // Initial load of animals
+      loadAnimals();
+    </script>
+
+    <!-- <script>
+      // TODO: Fetch actual data!
+
+      const fakeAnimals = [
+        {
+          id: 1,
+          reserved: false,
+          name: "Bean",
+          desc: "Bean LOVEs food. More couch potato than star athlete. Speaks 4 languages, used to be top 20 in the world at Age of Empires II but now mostly plays chess. Diabetic.",
+          hearts: 6,
+        },
+        {
+          id: 2,
+          reserved: false,
+          name: "Burt",
+          desc: "Burt is and older cat that is looking for a quiet life indoors. Used to be a plumber, we think. FIV+.",
+          hearts: 3,
+        },
+        {
+          id: 3,
+          reserved: false,
+          name: "Thundersocks",
+          desc: "Thundersocks is very young, active and full of life. Lives for water activities and tug-of-war.",
+          hearts: 4,
+        },
+        {
+          id: 4,
+          reserved: false,
+          name: "Gop",
+          desc: "Gop is scared of most things and needs a calm home. Likes death metal and sci-fi.",
+          hearts: 516,
+        },
+      ];
+
+      const table = document.querySelector("tbody");
+      const actions = document.querySelector("#actions").innerHTML;
+
+      fakeAnimals.forEach((animal) => {
+        const tr = document.createElement("tr");
+        tr.id = animal.id;
+        tr.innerHTML = `<td>${animal.name}</td><td>${animal.reserved}</td><td>${animal.desc}</td><td data-id="${animal.id}">${actions}</td>`;
+        table.append(tr);
+      });
+
+      function remove(element) {
+        const animalId = element.parentElement.dataset.id;
+        const animal = fakeAnimals.find((a) => a.id == animalId);
+
+        // TODO: Make DELETE request to the API for this animal
+
+        // If the request is successful, refresh the page
+        document.location.reload();
+      }
+
+      function reserve(element) {
+        const animalId = element.parentElement.dataset.id;
+        const animal = fakeAnimals.find((a) => a.id == animalId);
+        if (animal.reserved) {
+          return alert("Animal already reserved");
+        }
+
+        // TODO: Make PATCH request to the API for this animal
+        // Only send "{ reserved: true }" as the request
+
+        // If the request is successful, refresh the page
+        document.location.reload();
+      }
+
+      function edit(element) {
+        const bg = document.querySelector("#backdrop");
+        const modal = document.querySelector("#modal");
+        bg.classList.remove("hide");
+        modal.classList.remove("hide");
+
+        const animalId = element.parentElement.dataset.id;
+        const animal = fakeAnimals.find((a) => a.id == animalId);
+        document.querySelector("#edit-name").value = animal.name;
+        document.querySelector("#edit-desc").value = animal.desc;
+
+        modal.dataset.id = element.parentElement.dataset.id; // Save animal ID into element data attributes
+      }
+
+      function doEdit() {
+        const modal = document.querySelector("#modal");
+        const animalId = modal.dataset.id;
+        const animal = fakeAnimals.find((a) => a.id == animalId);
+
+        const newName = document.querySelector("#edit-name").value;
+        const newDesc = document.querySelector("#edit-desc").value;
+
+        // TODO: Make PUT request to the API for this animal
+
+        // If the request is successful, refresh the page
+        document.location.reload();
+      }
+    </script> -->
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.3",
+    "mongoose": "^8.2.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "be-database-advanced-animalshelter-drcetmi",
+  "description": "This is a full stack animal shelter application. There are two frontend files; `index.html` and `admin.html` - both are meant to be run using VS Code Live Server.",
+  "version": "1.0.0",
+  "main": "db.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
