@@ -1,0 +1,28 @@
+body {
+  background-image: url(https://cdn.pixabay.com/photo/2015/07/05/10/18/tree-832079_1280.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.App {
+  text-align: center;
+  margin-top: 50px;
+}
+
+input {
+  margin-right: 10px;
+}
+
+button {
+  padding: 8px;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+p {
+  margin: 5px 0;
+}
